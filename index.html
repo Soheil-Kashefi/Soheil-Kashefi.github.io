@@ -51,6 +51,7 @@
             width: 200px; height: 200px;
             border-radius: 8px; object-fit: cover;
             border: 2px solid #333; align-self: center;
+            display: block; /* Ensures image behaves correctly */
         }
         .nav-button {
             background: #232323; border: 2px solid #333;
@@ -82,7 +83,15 @@
         .submenu-link:hover { text-decoration: underline; color: #fff; }
 
         /* MAIN CODE AREA STYLES */
-        .code-section { flex: 1; padding-left: 20px; overflow-x: auto; }
+        .code-section { 
+            flex: 1; 
+            padding-left: 20px; 
+            overflow-x: auto;
+            /* Added logic to Center Vertically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
         
         /* SYNTAX HIGHLIGHTING */
         .comment { color: #6a9955; }
@@ -93,10 +102,10 @@
         .property { margin-left: 20px; margin-bottom: 5px; }
         .section-break { height: 30px; }
 
-        /* TWO COLUMN LAYOUT FOR UNIVERSITIES */
+        /* ONE COLUMN LAYOUT FOR UNIVERSITIES (UPDATED) */
         .education-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr; /* Changed from 1fr 1fr to 1fr */
             gap: 20px;
             margin-left: 20px;
         }
@@ -112,7 +121,8 @@
             .container { flex-direction: column; padding: 10px; }
             .profile-section { flex: none; width: 100%; min-width: 0; }
             .code-section { padding-left: 0; }
-            .education-grid { grid-template-columns: 1fr; }
+            /* Mobile already stacked, but kept for safety */
+            .education-grid { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
